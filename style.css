@@ -1,0 +1,16 @@
+button {
+    padding: 10px 20px; /* Espaciado interno */
+    margin: 20px; /* Espaciado externo */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    transition: background-color 0.3s, transform 0.2s; /* Animación suave */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño ligeramente al pasar el mouse */
+}

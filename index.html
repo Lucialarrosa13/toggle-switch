@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Oscuro y Claro</title>
+    <style>
+        /* Estilos para los modos claro y oscuro */
+        body.light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Contenedor del interruptor */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        /* Iconos de luna y sol */
+        .moon-icon, .sun-icon {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        /* Estilo del interruptor */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Interruptor de modo oscuro/claro -->
+    <div class="theme-switch-wrapper">
+        <span class="moon-icon">🌙</span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider round"></div>
+        </label>
+        <span class="sun-icon">☀️</span>
+    </div>
+
+    <!-- Contenido de la página -->
+    <h1> Hello, world, it's me again </h1>
+    <p>Do you remember who I am?</p>
+
+    <!-- JavaScript para el cambio de modo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleSwitch = document.querySelector('#checkbox');
+            const body = document.body;
+
+            // Cambia el tema cuando el checkbox es activado/desactivado
+            toggleSwitch.addEventListener('change', () => {
+                if (toggleSwitch.checked) {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                } else {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
